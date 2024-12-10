@@ -1,5 +1,5 @@
 # Introdução
-    Este documento descreve as regras e padrões que serão seguidos na especificação dos requisitos do sistema para o projeto "Sistema Restaurante".
+Este documento descreve as regras e padrões que serão seguidos na especificação dos requisitos do sistema para o projeto "Sistema Restaurante".
 
 As nomenclaturas adotadas para os requisitos serão:
 * RF:
