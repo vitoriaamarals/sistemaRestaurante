@@ -8,3 +8,11 @@ Um software capaz de prover e melhorar a gestão do cardápio, do estoque, dos c
 * [React](https://react.dev/)
 * [Node.js](https://nodejs.org/)
 * [MySQL](https://www.mysql.com/)
+
+## 📂 Direcionamento de Pastas
+
+### Padrôes_Adotados
+Destinada a especificação das características que devem ser obedecidas na descrição dos requisitos do projeto.
+
+### Requisitos
+Destinada ao Documento de Requisitos do projeto.
