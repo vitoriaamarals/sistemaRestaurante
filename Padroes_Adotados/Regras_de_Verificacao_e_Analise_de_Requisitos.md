@@ -15,24 +15,31 @@ As nomenclaturas adotadas para os requisitos serão:
 Um requisito é correto se ele satisfaz alguma necessidade real do usuário. Não pode existir necessidade sem ter sido especificada.
 
 * Sem Ambigiiidade
+
 Os requisitos deverão possuir apenas uma interpretação. Assim, se um requisito não puder seguir o guia de especificação de requisitos, será obrigado a escrita de sentenças maiores em linguagem natural.
 
 * Verificável
+
 Para todo requisito especificado deverá existir um processo finito e de custo exequível que permita verificar se o produto construído o atende.
 
 * Consistente
+
 Um conjunto de requisitos está inconsistente se pares de requisitos forem logicamente contraditórios ou levarem a resultados diferentes.
 
 * Modificável
+
 Realizar mudanças na especificação devem ser facilitadas e garantirem que as mudanças sejam realizadas rapidamente e sem grandes impactos.
 
 * Rastreável
+
 A origem de cada requisito deverá, obrigatoriamente, ser documentada no atributo Fonte de um requisito.
 
 * Independência de Projeto
+
 Requisitos devem ser expressos de forma que qualquer representação válida do projeto possa ser utilizada.
 
 * Organizada
+
 Requisitos devem estar ordenados e agrupados de acordo com sua área do projeto.
 
 
