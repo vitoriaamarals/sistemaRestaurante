@@ -3,8 +3,10 @@ Este documento descreve as regras e padrões que serão seguidos na especificaç
 
 As nomenclaturas adotadas para os requisitos serão:
 * RF:
+
     Requisitos Funcionais, que definem o que o software deverá fornecer e seu comportamento durante a interação com o ambiente externo ao software que está sendo produzido. 
 * RNF:
+
     Requisitos Não Funcionais, que restringem a forma como os requisitos funcionais fornecerão seus serviços e se comportarão durante a execução do software que está sendo produzido.
 
 
@@ -45,6 +47,7 @@ Requisitos devem estar ordenados e agrupados de acordo com sua área do projeto.
 
 ## Organização e Rastreabilidade
 * Cada requisito será numerado e categorizado como RF ou RNF.
+
     Exemplo de nomenclatura:
         RF-01: Alteração do estoque.
         RNF-01: O sistema deve usar autenticação para acesso dos gerentes ao estoque.
