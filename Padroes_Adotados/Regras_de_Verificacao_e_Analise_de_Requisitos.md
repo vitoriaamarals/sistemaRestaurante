@@ -11,6 +11,7 @@ As nomenclaturas adotadas para os requisitos serão:
 # Regras de Especificação de Requisitos
 
 * Correto e Completo:
+
 Um requisito é correto se ele satisfaz alguma necessidade real do usuário. Não pode existir necessidade sem ter sido especificada.
 
 * Sem Ambigiiidade
