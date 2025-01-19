@@ -13,37 +13,35 @@ As nomenclaturas adotadas para os requisitos serão:
 
 # Regras de Especificação de Requisitos
 
-* Correto e Completo:
+### Correto e Completo
 
-Um requisito é correto se ele satisfaz alguma necessidade real do usuário. Não pode existir necessidade sem ter sido especificada.
+* Um requisito é correto se ele satisfaz alguma necessidade real do usuário. Não pode existir necessidade sem ter sido especificada.
 
-* Sem Ambigiiidade
 
-Os requisitos deverão possuir apenas uma interpretação. Assim, se um requisito não puder seguir o guia de especificação de requisitos, será obrigado a escrita de sentenças maiores em linguagem natural.
+### Sem Ambigiiidade
 
-* Verificável
+* Os requisitos deverão possuir apenas uma interpretação. Assim, se um requisito não puder seguir o guia de especificação de requisitos, será obrigado a escrita de sentenças maiores em linguagem natural.
 
-Para todo requisito especificado deverá existir um processo finito e de custo exequível que permita verificar se o produto construído o atende.
 
-* Consistente
+### Verificável
 
-Um conjunto de requisitos está inconsistente se pares de requisitos forem logicamente contraditórios ou levarem a resultados diferentes.
+* Para todo requisito especificado deverá existir um processo finito e de custo exequível que permita verificar se o produto construído o atende.
 
-* Modificável
 
-Realizar mudanças na especificação devem ser facilitadas e garantirem que as mudanças sejam realizadas rapidamente e sem grandes impactos.
+### Consistente
 
-* Rastreável
+* Um conjunto de requisitos está inconsistente se pares de requisitos forem logicamente contraditórios ou levarem a resultados diferentes.
 
-A origem de cada requisito deverá, obrigatoriamente, ser documentada no atributo Fonte de um requisito.
 
-* Independência de Projeto
+### Modificável
 
-Requisitos devem ser expressos de forma que qualquer representação válida do projeto possa ser utilizada.
+* Realizar mudanças na especificação devem ser facilitadas e garantirem que as mudanças sejam realizadas rapidamente e sem grandes impactos.
 
-* Organizada
 
-Requisitos devem estar ordenados e agrupados de acordo com sua área do projeto.
+### Independência de Projeto
+
+* Requisitos devem ser expressos de forma que qualquer representação válida do projeto possa ser utilizada.
+
 
 
 ## Organização e Rastreabilidade
