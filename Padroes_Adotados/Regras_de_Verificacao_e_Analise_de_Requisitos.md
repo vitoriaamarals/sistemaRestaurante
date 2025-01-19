@@ -10,16 +10,30 @@ As nomenclaturas adotadas para os requisitos serão:
 
 # Regras de Especificação de Requisitos
 
-## Clareza e Objetividade
-* Os requisitos devem ser descritos de forma simples, clara e objetiva.
-* Deve-se evitar ambiguidades, usando termos específicos e técnicos quando necessário.
+* Correto e Completo:
+Um requisito é correto se ele satisfaz alguma necessidade real do usuário. Não pode existir necessidade sem ter sido especificada.
 
-## Consistência e Não Contradição
-* Todos os requisitos devem ser consistentes entre si e com os objetivos do sistema.
-* Não deve haver conflitos entre requisitos funcionais e não funcionais.
+* Sem Ambigiiidade
+Os requisitos deverão possuir apenas uma interpretação. Assim, se um requisito não puder seguir o guia de especificação de requisitos, será obrigado a escrita de sentenças maiores em linguagem natural.
 
-## Verificabilidade
-* Cada requisito deve ser testável. Deve ser possível validar se ele foi implementado ou não, utilizando critérios ou métricas específicas.
+* Verificável
+Para todo requisito especificado deverá existir um processo finito e de custo exequível que permita verificar se o produto construído o atende.
+
+* Consistente
+Um conjunto de requisitos está inconsistente se pares de requisitos forem logicamente contraditórios ou levarem a resultados diferentes.
+
+* Modificável
+Realizar mudanças na especificação devem ser facilitadas e garantirem que as mudanças sejam realizadas rapidamente e sem grandes impactos.
+
+* Rastreável
+A origem de cada requisito deverá, obrigatoriamente, ser documentada no atributo Fonte de um requisito.
+
+* Independência de Projeto
+Requisitos devem ser expressos de forma que qualquer representação válida do projeto possa ser utilizada.
+
+* Organizada
+Requisitos devem estar ordenados e agrupados de acordo com sua área do projeto.
+
 
 ## Organização e Rastreabilidade
 * Cada requisito será numerado e categorizado como RF ou RNF.
