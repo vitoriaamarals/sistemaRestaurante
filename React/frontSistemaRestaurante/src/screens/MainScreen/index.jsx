@@ -1,9 +1,15 @@
 import "./style.css";
+import { NavigatorBar } from "../../components/components";
 
 function MainScreen() {
   return (
-    <div>
-        <p>Olá Mundo novo!</p>
+    <div >
+      <header className="header">
+        
+      </header>
+      <div className="PlanoFundo">
+        <NavigatorBar />
+      </div>
     </div>
   );
 }
