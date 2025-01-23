@@ -1,7 +1,7 @@
 import "./style.css";
 import { NavigatorBar } from "../../components/components";
 
-function MainScreen() {
+function Login_Cliente() {
     return (
         <div >
             <header className="header"></header>
@@ -44,4 +44,4 @@ function MainScreen() {
     );
 }
 
-export default MainScreen;
+export default Login_Cliente;

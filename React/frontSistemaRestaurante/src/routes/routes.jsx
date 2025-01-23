@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { LoginCliente, MainScreen} from "../screens/pages";
+import { MinhaConta, LoginCliente, MainScreen} from "../screens/pages";
 
 const PageRoutes = () => {
   return (
@@ -7,7 +7,8 @@ const PageRoutes = () => {
       <Routes>
         <Route path="/">
           <Route path="/" element={<MainScreen />} />
-          <Route path="/MinhaConta" element={<LoginCliente />} />
+          <Route path="/Login" element={<LoginCliente />} />
+          <Route path="/MinhaConta" element={<MinhaConta />} />
         </Route>
       </Routes>
     </BrowserRouter>
