@@ -1,5 +1,4 @@
 
-
 .formulario-conta {
     padding: 10px;
     max-width: 75%;
@@ -38,6 +37,10 @@
 
 .placeHol-texto {
     padding-bottom: 10px;
+}
+
+.placeHol-texto h3 {
+    font-weight: 300;
 }
 
 .botao-pronto {
