@@ -63,14 +63,14 @@ button:hover {
     width: 100%;
 }
 
-.placeHol {
+.placeHol-login {
     padding-top: 30px;
     padding-bottom: 10px;
     font-size: 17px;
     text-align: left;
 }
 
-.placeHol h3 {
+.placeHol-login h3 {
     font-weight: 300;
     padding-left: 2px;
 }

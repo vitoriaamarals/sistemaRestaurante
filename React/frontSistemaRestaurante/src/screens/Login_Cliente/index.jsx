@@ -12,14 +12,14 @@ function Login_Cliente() {
                         <h2>Bem-vindo de volta!</h2>
                     </div>
                     <div className="formulario">
-                        <div className="placeHol">
+                        <div className="placeHol-login">
                             <div className="placeHol-texto">
                                 <h3>Email</h3>
                             </div>
 
                             <input type="text" placeholder="" />
                         </div>
-                        <div className="placeHol">
+                        <div className="placeHol-login">
                             <div className="placeHol-texto">
                                 <h3>Senha</h3>
                             </div>
