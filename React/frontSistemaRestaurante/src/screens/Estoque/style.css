@@ -1,0 +1,48 @@
+.navigator-buttons {
+    position: relative;
+    padding: 100px 100px;
+    padding-bottom: 2rem;
+    padding-top: 2.5rem;
+    margin: 10px 50px;
+}
+
+#adicionar-produto {
+    background-color: #199527;
+    width: 250px;
+    max-width: 600px;
+    height: 5vh;
+    font-size: medium;
+}
+
+.modal-overlay {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.modal-content {
+    width: 1000px;
+}
+
+#espaco-estoque {
+    padding-top: 0px;
+}
+
+.grid-estoque {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+}
+
+#grid-titulos {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    padding: 20px;
+}
+
+#grid-titulos h3 {
+    color: #D72222;
+    font-weight: 700;
+}
