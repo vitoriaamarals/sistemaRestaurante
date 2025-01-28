@@ -1,82 +1,176 @@
 import "./style.css";
 import { NavigatorBar } from "../../components/components";
-import { IMaskInput } from "react-imask";
 import { useState, useRef } from "react";
-import Modal from "react-modal";
-
-Modal.setAppElement("#root");
 
 function Estoque() {
+    // STATES
+    const [listaItens, setListaItens] = useState([]);
+    const [item, setItem] = useState("");
+    const [idItemEstoque, setIDEstoque] = useState("");
+    const [qtdItem, setQtd] = useState("");
+    const [editando, setEditando] = useState(null); // Rastreador de edição
+    const [editValues, setEditValues] = useState({ item: "", idItemEstoque: "", qtdItem: "" });
+    const [popup, setPopup] = useState({ visivel: false, itemId: null }); // Controle do popup de exclusão
 
-    // STATE
-    const [modalIsOpen, setIsOpen] = useState(false);
-    const [listaItens, setListaItens] = useState(() => { return [] })
-    const [item, setItem] = useState (() => { return '' })
-    const [idItemEstoque, setIDEstoque] = useState (() => { return '' })
-    const [qtdItem, setQtd] = useState (() => { return '' })
+    // REF para gerar IDs únicos
+    const idCounter = useRef(0);
 
-    // REF
-    const idItem = useRef(0)
+    // MÉTODOS
+    function adicionarItem() {
+        if (!item || !idItemEstoque || !qtdItem) {
+            alert("Preencha todos os campos antes de adicionar um item.");
+            return;
+        }
 
-    //
-    function openModal() {
-        setIsOpen(true);
+        const novoItem = {
+            id: idCounter.current,
+            item,
+            idItemEstoque,
+            qtdItem,
+        };
+
+        setListaItens((old) => [...old, novoItem]);
+        idCounter.current++; // Incrementa o ID único
+        setItem("");
+        setIDEstoque("");
+        setQtd("");
     }
 
-    function closeModal() {
-        setIsOpen(false);
+    function limparLista() {
+        setListaItens([]);
+        idCounter.current = 0;
+    }
+
+    function iniciarEdicao(produto) {
+        setEditando(produto.id);
+        setEditValues({
+            item: produto.item,
+            idItemEstoque: produto.idItemEstoque,
+            qtdItem: produto.qtdItem,
+        });
+    }
+
+    function salvarEdicao(id) {
+        setListaItens((old) =>
+            old.map((produto) =>
+                produto.id === id ? { ...produto, ...editValues } : produto
+            )
+        );
+        setEditando(null);
+    }
+
+    function confirmarRemocao(id) {
+        setPopup({ visivel: true, itemId: id });
+    }
+
+    function removerItemConfirmado() {
+        setListaItens((old) => old.filter((produto) => produto.id !== popup.itemId));
+        setPopup({ visivel: false, itemId: null });
+    }
+
+    function cancelarRemocao() {
+        setPopup({ visivel: false, itemId: null });
     }
 
     return (
-        <div >
+        <div>
             <NavigatorBar />
             <div className="navigator-buttons">
-                <button id="adicionar-produto" onClick={openModal}><h3>+ Adicionar Novo Produto</h3></button>
-                <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    contentLabel="Example Modal"
-                    overlayClassName="modal-overlay"
-                    className="modal-content"
-                >
-                    <div className="placeHol">
-                        <div className="placeHol-partes" id="espaco-estoque">
-                            <div className="placeHol-texto">
-                                <h3>Nome do item*</h3>
-                            </div>
-                            <input type="text" placeholder="" />
-                        </div>
-                        <div className="placeHol-partes">
-                            <div className="placeHol-texto">
-                                <h3>ID do item*</h3>
-                            </div>
-                            <input type="text" placeholder="" />
-                        </div>
-                        <div className="placeHol-partes">
-                            <div className="placeHol-texto">
-                                <h3>Quantidade Inicial*</h3>
-                            </div>
-                            <IMaskInput
-                                mask="0000"
-                                placeholder=""
-                            />
-                        </div>
-                    </div>
-                    <button onClick={closeModal}>Close</button>
-                </Modal>
+                <h1>Estoque</h1>
+                <div id="grid-adicionar-estoque">
+                    <input
+                        type="text"
+                        placeholder="Item"
+                        value={item}
+                        onChange={(e) => setItem(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="ID Item"
+                        value={idItemEstoque}
+                        onChange={(e) => setIDEstoque(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Quantidade"
+                        value={qtdItem}
+                        onChange={(e) => setQtd(e.target.value)}
+                    />
+                    <button id="adicionar-produto" onClick={adicionarItem}>
+                        <h3>+ Adicionar Novo Produto</h3>
+                    </button>
+                </div>
+                <hr />
             </div>
-            <div>
+
+            <div className="navigator-buttons">
                 <div id="grid-titulos">
                     <h3>Item</h3>
                     <h3>ID Item</h3>
                     <h3>Quantidade</h3>
                 </div>
-                <div id="grid-titulos">
-                    <input type="text" value= {item} onChange={(evento) => { setItem(evento.target.value)}} />
-                    <input type="text" value= {idItemEstoque} onChange={(evento) => { setIDEstoque(evento.target.value)}} />
-                    <input type="text" value= {qtdItem} onChange={(evento) => { setQtd(evento.target.value)}} />
+                <div className="lista-produtos">
+                    {listaItens.map((produto) => (
+                        <div key={produto.id} id="grid-titulos">
+                            {editando === produto.id ? (
+                                <>
+                                    <input
+                                        type="text"
+                                        value={editValues.item}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({ ...old, item: e.target.value }))
+                                        }
+                                    />
+                                    <input
+                                        type="text"
+                                        value={editValues.idItemEstoque}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({
+                                                ...old,
+                                                idItemEstoque: e.target.value,
+                                            }))
+                                        }
+                                    />
+                                    <input
+                                        type="text"
+                                        value={editValues.qtdItem}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({ ...old, qtdItem: e.target.value }))
+                                        }
+                                    />
+                                    <button id="botao-editar" onClick={() => salvarEdicao(produto.id)}>Salvar</button>
+                                </>
+                            ) : (
+                                <>
+                                    <p>{produto.item}</p>
+                                    <p>{produto.idItemEstoque}</p>
+                                    <p>{produto.qtdItem}</p>
+                                    <button onClick={() => confirmarRemocao(produto.id)}>Excluir</button>
+                                    <button id="botao-editar" onClick={() => iniciarEdicao(produto)}>Alterar</button>
+                                </>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
+
+            {/* Popup de confirmação */}
+            {popup.visivel && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <h1>
+                            Excluir item {listaItens.find((produto) => produto.id === popup.itemId)?.item}?
+                        </h1>
+                        <p>Essa ação não poderá ser desfeita</p>
+                        <div className="popup-buttons">
+                            <hr />
+                            <button id="popup-excluir" onClick={removerItemConfirmado}>Excluir</button>
+                            <hr />
+                            <button id="popup-cancelar" onClick={cancelarRemocao}>Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

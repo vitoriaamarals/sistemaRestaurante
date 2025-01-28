@@ -14,35 +14,106 @@
     font-size: medium;
 }
 
-.modal-overlay {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
-.modal-content {
-    width: 1000px;
-}
 
 #espaco-estoque {
     padding-top: 0px;
 }
 
-.grid-estoque {
-    display: grid;
-    grid-template-columns: 100px 100px 100px;
-}
-
 #grid-titulos {
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    gap: 10px;
     padding: 20px;
+    align-items: center;
 }
 
 #grid-titulos h3 {
     color: #D72222;
     font-weight: 700;
+}
+
+#grid-titulos input {
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #000000;
+}
+
+#grid-adicionar-estoque {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 300px;
+    grid-template-rows: 100px;
+    column-gap: 50px;
+    align-items: center;
+}
+
+#grid-adicionar-estoque input {
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #000000;
+} 
+
+.lista-produtos button {
+    background-color: #CE2424;
+    font-size: 18px;
+    font-weight: 700;
+    height: 30px;
+    width: 85px;
+}
+
+#botao-editar {
+    background-color: #6A1993;
+    
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 80px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.popup-content h1 {
+    padding-bottom: 30px;
+    font-weight: 300;
+}
+
+.popup-buttons {
+    padding-top: 60px;
+}
+
+.popup-buttons button {
+    background-color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+#popup-excluir {
+    color: #D72222;
+}
+
+#popup-cancelar {
+    color: #605B5B;
+}
+
+.popup-buttons button:hover {
+    opacity: 0.9;
 }
