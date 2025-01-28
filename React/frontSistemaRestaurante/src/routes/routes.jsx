@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Estoque, MinhaContaDados, MinhaConta, LoginCliente, MainScreen} from "../screens/pages";
+import { Cardapio, Estoque, MinhaContaDados, MinhaConta, LoginCliente, MainScreen} from "../screens/pages";
 
 const PageRoutes = () => {
   return (
@@ -11,6 +11,7 @@ const PageRoutes = () => {
           <Route path="/MinhaConta" element={<MinhaConta />} />
           <Route path="/MinhaConta-Dados" element={<MinhaContaDados />} />
           <Route path="/Estoque" element={<Estoque />} />
+          <Route path="/Cardapio" element={<Cardapio />} />
         </Route>
       </Routes>
     </BrowserRouter>
