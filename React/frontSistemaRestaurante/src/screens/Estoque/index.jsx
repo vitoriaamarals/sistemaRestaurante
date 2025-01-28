@@ -91,7 +91,7 @@ function Estoque() {
                         onChange={(e) => setIDEstoque(e.target.value)}
                     />
                     <input
-                        type="text"
+                        type="number"
                         placeholder="Quantidade"
                         value={qtdItem}
                         onChange={(e) => setQtd(e.target.value)}
@@ -132,7 +132,7 @@ function Estoque() {
                                         }
                                     />
                                     <input
-                                        type="text"
+                                        type="number"
                                         value={editValues.qtdItem}
                                         onChange={(e) =>
                                             setEditValues((old) => ({ ...old, qtdItem: e.target.value }))
