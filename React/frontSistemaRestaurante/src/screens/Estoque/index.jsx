@@ -72,163 +72,163 @@ function Estoque() {
             body: JSON.stringify(editValues),
         })
             .then((response) => response.json())
-        .then(() => {
-            setListaItens((old) =>
-                old.map((produto) =>
-                    produto.id_produto === id ? { ...produto, ...editValues } : produto
-                )
-            );
-            setEditando(null);
-        })
-        .catch((error) => console.error("Erro ao editar item:", error));
-}
-
-// Função para remover item
-function removerItemConfirmado() {
-    fetch(`http://localhost:3000/estoque/${popup.itemId}`, {
-        method: "DELETE",
-        })
             .then(() => {
-            setListaItens((old) => old.filter((produto) => produto.id_produto !== popup.itemId));
-            setPopup({ visivel: false, itemId: null });
-        })
-    .catch((error) => console.error("Erro ao remover item:", error));
+                setListaItens((old) =>
+                    old.map((produto) =>
+                        produto.id_produto === id ? { ...produto, ...editValues } : produto
+                    )
+                );
+                setEditando(null);
+            })
+            .catch((error) => console.error("Erro ao editar item:", error));
     }
 
-return (
-    <div>
-        <NavigatorBar />
-        <div className="navigator-buttons">
-            <h1>Estoque</h1>
-            <div id="grid-adicionar-estoque">
-                <input
-                    type="number"
-                    placeholder="ID Produto"
-                    value={idProduto}
-                    onChange={(e) => setIdProduto(e.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="Nome do Produto"
-                    value={nomeProduto}
-                    onChange={(e) => setNomeProduto(e.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder="Quantidade Atual"
-                    value={qtdAtual}
-                    onChange={(e) => setQtdAtual(e.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder="Quantidade Mínima"
-                    value={qtdMinima}
-                    onChange={(e) => setQtdMinima(e.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="Unidade de Medida"
-                    value={unidadeMedida}
-                    onChange={(e) => setUnidadeMedida(e.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="Status do Produto"
-                    value={statusProduto}
-                    onChange={(e) => setStatusProduto(e.target.value)}
-                />
-                <button id="adicionar-produto" onClick={adicionarItem}>
-                    + Adicionar Novo Produto
-                </button>
+    // Função para remover item
+    function removerItemConfirmado() {
+        fetch(`http://localhost:3000/estoque/${popup.itemId}`, {
+            method: "DELETE",
+        })
+            .then(() => {
+                setListaItens((old) => old.filter((produto) => produto.id_produto !== popup.itemId));
+                setPopup({ visivel: false, itemId: null });
+            })
+            .catch((error) => console.error("Erro ao remover item:", error));
+    }
+
+    return (
+        <div>
+            <NavigatorBar />
+            <div className="navigator-buttons">
+                <h1>Estoque</h1>
+                <div id="grid-adicionar-estoque">
+                    <input
+                        type="number"
+                        placeholder="ID Produto"
+                        value={idProduto}
+                        onChange={(e) => setIdProduto(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Nome do Produto"
+                        value={nomeProduto}
+                        onChange={(e) => setNomeProduto(e.target.value)}
+                    />
+                    <input
+                        type="number"
+                        placeholder="Quantidade Atual"
+                        value={qtdAtual}
+                        onChange={(e) => setQtdAtual(e.target.value)}
+                    />
+                    <input
+                        type="number"
+                        placeholder="Quantidade Mínima"
+                        value={qtdMinima}
+                        onChange={(e) => setQtdMinima(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Unidade de Medida"
+                        value={unidadeMedida}
+                        onChange={(e) => setUnidadeMedida(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Status do Produto"
+                        value={statusProduto}
+                        onChange={(e) => setStatusProduto(e.target.value)}
+                    />
+                    <button id="adicionar-produto" onClick={adicionarItem}>
+                        + Adicionar Novo Produto
+                    </button>
+                </div>
+
             </div>
             <hr />
-        </div>
-
-        <div className="navigator-buttons">
-            <div id="grid-titulos">
-                <h3>ID</h3>
-                <h3>Produto</h3>
-                <h3>Quantidade</h3>
-                <h3>Qtd Mínima</h3>
-                <h3>Unidade Medida</h3>
-                <h3>Status</h3>
-            </div>
-            <div className="lista-produtos">
-                {listaItens.map((produto) => (
-                    <div key={produto.id_produto} id="grid-titulos">
-                        {editando === produto.id_produto ? (
-                            <>
-                                <input
-                                    type="text"
-                                    value={editValues.nome_produto}
-                                    onChange={(e) =>
-                                        setEditValues((old) => ({ ...old, nome_produto: e.target.value }))
-                                    }
-                                />
-                                <input
-                                    type="text"
-                                    value={editValues.qtd_atual}
-                                    onChange={(e) =>
-                                        setEditValues((old) => ({ ...old, qtd_atual: e.target.value }))
-                                    }
-                                />
-                                <input
-                                    type="number"
-                                    value={editValues.qtd_minima}
-                                    onChange={(e) =>
-                                        setEditValues((old) => ({ ...old, qtd_minima: e.target.value }))
-                                    }
-                                />
-                                <input
-                                    type="text"
-                                    value={editValues.unidade_medida}
-                                    onChange={(e) =>
-                                        setEditValues((old) => ({ ...old, unidade_medida: e.target.value }))
-                                    }
-                                />
-                                <input
-                                    type="text"
-                                    value={editValues.status_produto}
-                                    onChange={(e) =>
-                                        setEditValues((old) => ({ ...old, status_produto: e.target.value }))
-                                    }
-                                />
-                                <button onClick={() => salvarEdicao(produto.id_produto)}>Salvar</button>
-                            </>
-                        ) : (
-                            <>
-                                <p>{produto.id_produto}</p>
-                                <p>{produto.nome_produto}</p>
-                                <p>{produto.qtd_atual}</p>
-                                <p>{produto.qtd_minima}</p>
-                                <p>{produto.unidade_medida}</p>
-                                <p>{produto.status_produto}</p>
-                                <button onClick={() => setPopup({ visivel: true, itemId: produto.id_produto })}>Excluir</button>
-                                <button onClick={() => setEditando(produto.id_produto)}>Alterar</button>
-                            </>
-                        )}
-                    </div>
-                ))}
-            </div>
-        </div>
-
-        {popup.visivel && (
-            <div className="popup">
-                <div className="popup-content">
-                    <h1>
-                        Excluir o produto{" "}
-                        {listaItens.find((produto) => produto.id_produto === popup.itemId)?.nome_produto}?
-                    </h1>
-                    <p>Essa ação não poderá ser desfeita.</p>
-                    <div className="popup-buttons">
-                        <button onClick={removerItemConfirmado}>Excluir</button>
-                        <button onClick={() => setPopup({ visivel: false, itemId: null })}>Cancelar</button>
-                    </div>
+            <div className="navigator-buttons">
+                <div id="grid-titulos">
+                    <h3>ID</h3>
+                    <h3>Produto</h3>
+                    <h3>Quantidade</h3>
+                    <h3>Qtd Mínima</h3>
+                    <h3>Unidade Medida</h3>
+                    <h3>Status</h3>
+                </div>
+                <div className="lista-produtos">
+                    {listaItens.map((produto) => (
+                        <div key={produto.id_produto} id="grid-titulos">
+                            {editando === produto.id_produto ? (
+                                <>
+                                    <input
+                                        type="text"
+                                        value={editValues.nome_produto}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({ ...old, nome_produto: e.target.value }))
+                                        }
+                                    />
+                                    <input
+                                        type="text"
+                                        value={editValues.qtd_atual}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({ ...old, qtd_atual: e.target.value }))
+                                        }
+                                    />
+                                    <input
+                                        type="number"
+                                        value={editValues.qtd_minima}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({ ...old, qtd_minima: e.target.value }))
+                                        }
+                                    />
+                                    <input
+                                        type="text"
+                                        value={editValues.unidade_medida}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({ ...old, unidade_medida: e.target.value }))
+                                        }
+                                    />
+                                    <input
+                                        type="text"
+                                        value={editValues.status_produto}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({ ...old, status_produto: e.target.value }))
+                                        }
+                                    />
+                                    <button onClick={() => salvarEdicao(produto.id_produto)}>Salvar</button>
+                                </>
+                            ) : (
+                                <>
+                                    <p>{produto.id_produto}</p>
+                                    <p>{produto.nome_produto}</p>
+                                    <p>{produto.qtd_atual}</p>
+                                    <p>{produto.qtd_minima}</p>
+                                    <p>{produto.unidade_medida}</p>
+                                    <p>{produto.status_produto}</p>
+                                    <button onClick={() => setPopup({ visivel: true, itemId: produto.id_produto })}>Excluir</button>
+                                    <button onClick={() => setEditando(produto.id_produto)}>Alterar</button>
+                                </>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
-        )}
-    </div>
-);
+
+            {popup.visivel && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <h1>
+                            Excluir o produto{" "}
+                            {listaItens.find((produto) => produto.id_produto === popup.itemId)?.nome_produto}?
+                        </h1>
+                        <p>Essa ação não poderá ser desfeita.</p>
+                        <div className="popup-buttons">
+                            <button onClick={removerItemConfirmado}>Excluir</button>
+                            <button onClick={() => setPopup({ visivel: false, itemId: null })}>Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default Estoque;
