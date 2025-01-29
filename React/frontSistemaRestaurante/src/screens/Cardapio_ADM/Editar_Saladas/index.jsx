@@ -1,25 +1,19 @@
 import React, { useState } from "react";
-import "./style.css";
 import { NavigatorBar } from "../../../components/components";
 
-function EditarCarnes() {
+function EditarSaladas() {
     const [items, setItems] = useState([
-        "PICANHA",
-        "FRALDINHA",
-        "CONTRA-FILÉ",
-        "ALCATRA",
-        "MAMINHA",
-        "COSTELÃO",
-        "CUPIM",
-        "LOMBO DE PORCO",
-        "PICANHA SUÍNA",
-        "BARRIGUINHA",
-        "FRANGO DESSOSSADO",
-        "MEDALHÃO DE FRANGO",
-        "CORAÇÃO DE FRANGO",
-        "ASINHA DE FRANGO",
-        "LINGUIÇA TOSCANA",
-        "QUEIJO PROVOLONE",
+        "ALFACE",
+        "TOMATE",
+        "BETERRABA",
+        "CENOURA",
+        "COUVE REFOGADA",
+        "BRÓCOLIS",
+        "COUVE-FLOR",
+        "PIMENTÃO REFOGADO",
+        "BERINGELA REFOGADA",
+        "ALHO-PORÓ",
+
     ]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [newItem, setNewItem] = useState("");
@@ -66,7 +60,7 @@ function EditarCarnes() {
             <div>
                 <section className="cardapio-section" id="cardapio-section-add">
                     <div className="header-container">
-                        <h2>CARNES</h2>
+                        <h2>Saladas</h2>
                         <div className="actions">
                             <button onClick={() => openModal("add")} className="button-add">
                                 + Adicionar novo item
@@ -172,4 +166,4 @@ function EditarCarnes() {
     );
 }
 
-export default EditarCarnes;
+export default EditarSaladas;
