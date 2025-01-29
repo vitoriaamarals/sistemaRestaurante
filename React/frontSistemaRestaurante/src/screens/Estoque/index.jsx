@@ -66,6 +66,14 @@ function Estoque() {
 
     // Função para salvar edição
     function salvarEdicao(id) {
+        const itemEditado = { 
+            ...editValues, 
+            id_produto: Number(id),  // Garantir que ID seja um número
+            qtd_atual: Number(editValues.qtd_atual),  // Converter para número
+            qtd_minima: Number(editValues.qtd_minima) // Converter para número
+        };
+    
+        console.log("Dados enviados:", itemEditado);
         fetch(`http://localhost:3000/estoque/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -117,13 +125,13 @@ function Estoque() {
                         type="number"
                         placeholder="Quantidade Atual"
                         value={qtdAtual}
-                        onChange={(e) => setQtdAtual(e.target.value)}
+                        onChange={(e) => setQtdAtual(Number(e.target.value))}
                     />
                     <input
                         type="number"
                         placeholder="Quantidade Mínima"
                         value={qtdMinima}
-                        onChange={(e) => setQtdMinima(e.target.value)}
+                        onChange={(e) => setQtdMinima(Number(e.target.value))}
                     />
                     <input
                         type="text"
@@ -141,9 +149,9 @@ function Estoque() {
                         + Adicionar Novo Produto
                     </button>
                 </div>
-
+                <hr />
             </div>
-            <hr />
+
             <div className="navigator-buttons">
                 <div id="grid-titulos">
                     <h3>ID</h3>
@@ -160,23 +168,30 @@ function Estoque() {
                                 <>
                                     <input
                                         type="text"
+                                        value={editValues.id_produto}
+                                        onChange={(e) =>
+                                            setEditValues((old) => ({ ...old, id_produto: e.target.value }))
+                                        }
+                                    />
+                                    <input
+                                        type="text"
                                         value={editValues.nome_produto}
                                         onChange={(e) =>
                                             setEditValues((old) => ({ ...old, nome_produto: e.target.value }))
                                         }
                                     />
                                     <input
-                                        type="text"
+                                        type="number"
                                         value={editValues.qtd_atual}
                                         onChange={(e) =>
-                                            setEditValues((old) => ({ ...old, qtd_atual: e.target.value }))
+                                            setEditValues((old) => ({ ...old, qtd_atual: Number(e.target.value) }))
                                         }
                                     />
                                     <input
                                         type="number"
                                         value={editValues.qtd_minima}
                                         onChange={(e) =>
-                                            setEditValues((old) => ({ ...old, qtd_minima: e.target.value }))
+                                            setEditValues((old) => ({ ...old, qtd_minima: Number(e.target.value) }))
                                         }
                                     />
                                     <input
@@ -203,8 +218,12 @@ function Estoque() {
                                     <p>{produto.qtd_minima}</p>
                                     <p>{produto.unidade_medida}</p>
                                     <p>{produto.status_produto}</p>
-                                    <button onClick={() => setPopup({ visivel: true, itemId: produto.id_produto })}>Excluir</button>
-                                    <button onClick={() => setEditando(produto.id_produto)}>Alterar</button>
+                                    <button onClick={() => setPopup({ visivel: true, itemId: produto.id_produto })}>
+                                        Excluir
+                                    </button>
+                                    <button onClick={() => setEditando(produto.id_produto)}>
+                                        Alterar
+                                    </button>
                                 </>
                             )}
                         </div>
@@ -222,7 +241,9 @@ function Estoque() {
                         <p>Essa ação não poderá ser desfeita.</p>
                         <div className="popup-buttons">
                             <button onClick={removerItemConfirmado}>Excluir</button>
-                            <button onClick={() => setPopup({ visivel: false, itemId: null })}>Cancelar</button>
+                            <button onClick={() => setPopup({ visivel: false, itemId: null })}>
+                                Cancelar
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -231,4 +252,4 @@ function Estoque() {
     );
 }
 
-export default Estoque;
+export default Estoque;
