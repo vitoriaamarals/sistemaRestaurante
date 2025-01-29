@@ -7,12 +7,30 @@ Um software capaz de prover e melhorar a gestão do cardápio, do estoque, dos c
 ## 🧰 Tecnologias do Sistema
 * [React](https://react.dev/) v19.0
 * [Node.js](https://nodejs.org/) v22.13.0
-* [MySQL Workbench](https://www.mysql.com/) 8.0.40
+* [MongoDB](https://www.mongodb.com/pt-br) v8.0.4
 
 ## 📂 Direcionamento de Pastas
 
-### Padrôes_Adotados
+### Padrões_Adotados
 Destinada a especificação das características que devem ser obedecidas na descrição dos requisitos do projeto.
 
 ### Requisitos
 Destinada ao Documento de Requisitos do projeto.
+
+## 🖱️ Inicializar o Projeto
+
+### Abra o terminal:
+```
+git clone https://github.com/vitoriaamarals/sistemaRestaurante.git
+cd Software
+cd backend
+npm install
+npm run start
+```
+
+### Abra outro terminal:
+```
+cd frontSistemaRestaurante
+npm install
+npm run dev
+```
