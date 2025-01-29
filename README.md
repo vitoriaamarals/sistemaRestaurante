@@ -24,11 +24,13 @@ Destinada ao Documento de Requisitos do projeto.
 git clone https://github.com/vitoriaamarals/sistemaRestaurante.git
 cd Software
 cd backend
+npm install
 npm run start
 ```
 
 ### Abra outro terminal:
 ```
 cd frontSistemaRestaurante
+npm install
 npm run dev
 ```
