@@ -19,7 +19,7 @@ Destinada ao Documento de Requisitos do projeto.
 
 ## 🖱️ Inicializar o Projeto
 
-###Abra o terminal:
+### Abra o terminal:
 ```
 git clone https://github.com/vitoriaamarals/sistemaRestaurante.git
 cd Software
@@ -27,7 +27,7 @@ cd backend
 npm run start
 ```
 
-###Abra outro terminal:
+### Abra outro terminal:
 ```
 cd frontSistemaRestaurante
 npm run dev
