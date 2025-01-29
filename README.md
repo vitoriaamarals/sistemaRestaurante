@@ -16,3 +16,19 @@ Destinada a especificação das características que devem ser obedecidas na des
 
 ### Requisitos
 Destinada ao Documento de Requisitos do projeto.
+
+## 🖱️ Inicializar o Projeto
+
+###Abra o terminal:
+```
+git clone https://github.com/vitoriaamarals/sistemaRestaurante.git
+cd Software
+cd backend
+npm run start
+```
+
+###Abra outro terminal:
+```
+cd frontSistemaRestaurante
+npm run dev
+```
