@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Cardapio_ADM, Cardapio, Estoque, MinhaContaDados, MinhaConta, LoginCliente, MainScreen} from "../screens/pages";
+import { Cardapio_ADM, Cardapio, Estoque, MinhaContaDados, MinhaConta, LoginCliente, MainScreen } from "../screens/pages";
+import { EditarCarnes } from "../screens/pages";
 
 const PageRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const PageRoutes = () => {
           <Route path="/Estoque" element={<Estoque />} />
           <Route path="/Cardapio" element={<Cardapio />} />
           <Route path="/Cardapio_ADM" element={<Cardapio_ADM />} />
+          <Route path="/editar-carnes" element={<EditarCarnes />} />
         </Route>
       </Routes>
     </BrowserRouter>
