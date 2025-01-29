@@ -107,4 +107,10 @@ button:hover {
 
 #negrito h2 {
     font-weight: bold;
+    color: #000000;
+}
+
+.formulario a {
+    color: white;
+    text-decoration: none;
 }

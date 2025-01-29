@@ -9,7 +9,7 @@
 
 #adicionar-produto {
     background-color: #199527;
-    width: 250px;
+    width: 180px;
     max-width: 600px;
     height: 5vh;
     font-size: medium;
@@ -41,9 +41,9 @@
 
 #grid-adicionar-estoque {
     display: grid;
-    grid-template-columns: 160px 160px 160px 160px 160px 160px;
+    grid-template-columns: 160px 160px 160px 160px 170px 170px 150px;
     grid-template-rows: 100px;
-    column-gap: 50px;
+    column-gap: 30px;
     align-items: center;
 }
 

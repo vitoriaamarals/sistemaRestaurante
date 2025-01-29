@@ -27,7 +27,7 @@ function Navbar() {
                         </a>
                     </li>
                     <li id="especialLine">
-                        <a href="/MinhaConta">
+                        <a href="/Login">
                             <h2>Minha conta</h2>
                         </a>
                     </li>

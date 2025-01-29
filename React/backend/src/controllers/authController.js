@@ -18,7 +18,7 @@ const login = async (req, res) => {
     const cliente = await clienteService.authenticateCliente(email, senha);
     
 
-    const token = jwt.sign({ id_cliente: cliente.id_cliente }, JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ id_cliente: cliente.id_cliente }, "ACDBSIWICG43829BCBSK%%AGDFV!", { expiresIn: '1h' });
 
 
     res.status(200).json({ message: 'Login realizado com sucesso!', token });

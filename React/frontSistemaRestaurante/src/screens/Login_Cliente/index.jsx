@@ -60,7 +60,6 @@ function Login_Cliente() {
                             <div className="placeHol-texto">
                                 <h3>Senha</h3>
                             </div>
-
                             <input type="password" 
                             placeholder=""
                             value={senha}
@@ -84,7 +83,9 @@ function Login_Cliente() {
                             <h2>Não tem uma conta?</h2>
                         </div>
                         <div className="textoNormal" id="negrito">
-                            <h2>Inscreva-se</h2>
+                            <a href="/MinhaConta">
+                                <h2>Inscreva-se</h2>
+                            </a>
                         </div>
                     </div>
                 </div>
